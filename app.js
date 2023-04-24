@@ -62,9 +62,18 @@ app.get("/secrets", (req, res)=>{
     if (req.isAuthenticated()){
         res.render("secrets");
     } else {
-        console.log(req.session)
         res.redirect("/login");
     }
+});
+
+app.get('/logout', (req, res)=>{
+    req.logout((err)=>{
+        if (!err){
+            res.redirect("/");
+        } else {
+            console.log(err)
+        }
+    });
 })
 
 app.get("/submit", (req, res)=>{
