@@ -12,7 +12,6 @@ const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const findOrCreate = require('mongoose-findorcreate')
 const FacebookStrategy = require('passport-facebook').Strategy;
 
-
 const app = express();
 
 app.set('view engine', 'ejs');
@@ -35,6 +34,7 @@ const userSchema = new mongoose.Schema({
     username: String,
     password: String,
     googleId: String,
+    facebookId: String,
 });
 
 userSchema.plugin(passportLocalMongoose);
